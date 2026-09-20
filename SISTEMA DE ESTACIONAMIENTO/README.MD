@@ -11,3 +11,4 @@ Aplicación de consola desarrollada en Java para la gestión de ingreso y salida
 * `src/`: Código fuente en Java.
 * `database/`: Script SQL para la base de datos PostgreSQL.
 * `evidencias/`: Capturas de funcionamiento y pruebas.
+* `GIT HUB/`: Repositorio y link add
