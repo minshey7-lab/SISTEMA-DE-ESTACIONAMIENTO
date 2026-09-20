@@ -15,7 +15,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
 
-        do { try {
+        do { 
+        try {
                 System.out.println("\n=== SISTEMA DE GESTION DE ESTACIONAMIENTO ===");
                 System.out.println("1. Registrar Automovil");
                 System.out.println("2. Registrar Motocicleta");
@@ -84,13 +85,13 @@ public class Main {
 
             if (horasUtilizadas <= 0) {
                 System.out.println("Error: Las horas utilizadas deben ser mayor a cero.");
-                return;
-            }
+                return; }
 
             Vehiculo nuevoVehiculo;
             if (tipo.equals("Automovil")) {
                 nuevoVehiculo = new Automovil(placa, propietario, horaIngreso, horasUtilizadas);
-            } else {
+            } 
+            else {
                 nuevoVehiculo = new Motocicleta(placa, propietario, horaIngreso, horasUtilizadas);
             }
 
@@ -101,12 +102,10 @@ public class Main {
             totales.put(tipo, totales.get(tipo) + costoCalculado);
 
             System.out.println("\n¡Vehiculo registrado exitosamente!");
-            nuevoVehiculo.mostrarInformacion();
-
-        } catch (NumberFormatException e) {
-            System.out.println("Error de entrada: Debe ingresar un numero valido para las horas.");
-        }
-    }
+            nuevoVehiculo.mostrarInformacion(); } 
+        
+        catch (NumberFormatException e) {
+            System.out.println("Error de entrada: Debe ingresar un numero valido para las horas.");} }
 
     private static void buscarVehiculo(Scanner scanner, ArrayList<Vehiculo> lista) {
         System.out.print("Ingrese la placa a buscar: ");
@@ -117,26 +116,19 @@ public class Main {
             if (v.getPlaca().equalsIgnoreCase(placaBusqueda)) {
                 v.mostrarInformacion();
                 encontrado = true;
-                break;
-            }
-        }
+                break;}}
 
         if (!encontrado) {
-            System.out.println("No se encontro ningun vehiculo con la placa: " + placaBusqueda);
-        }
-    }
+            System.out.println("No se encontro ningun vehiculo con la placa: " + placaBusqueda);}}
 
     private static void mostrarTodos(ArrayList<Vehiculo> lista) {
         if (lista.isEmpty()) {
             System.out.println("No hay vehiculos registrados en el estacionamiento.");
-            return;
-        }
+            return; }
 
         System.out.println("\n=== LISTADO DE VEHICULOS REGISTRADOS ===");
         for (Vehiculo v : lista) {
-            v.mostrarInformacion();
-        }
-    }
+            v.mostrarInformacion();  } }
 
     private static void mostrarRecaudacion(HashMap<String, Double> totales) {
         double totalAutomoviles = totales.get("Automovil");
